@@ -207,7 +207,7 @@
                     <label for="category"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Assignee</label>
                     <select id="authorId" {{on "change" this.handleAuthor}}>
-                        <option value={{this.currentTask.author.id}}> {{this.currentTask.author.name}}</option>
+                        {{!-- <option value={{this.currentTask.author.id}}> {{this.currentTask.author.name}}</option> --}}
                         {{!-- <option value="TV">TV/Monitors</option>
                         <option value="PC">PC</option>
                         <option value="GA">Gaming/Console</option>

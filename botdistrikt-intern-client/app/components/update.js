@@ -41,8 +41,9 @@ export default class UpdateComponent extends Component {
       const authors_data = await authors.json();
       // console.log(data);
       this.currentTask = data;
-      if (authorId)
-        this.authors = authors_data.filter((author) => author.id != authorId);
+      this.authors = authors_data;
+      // if (authorId)
+      //   this.authors = authors_data.filter((author) => author.id != authorId);
     } catch (error) {
       console.error('Error fetching data:', error);
       // Handle the error as needed (e.g., show an error message to the user)

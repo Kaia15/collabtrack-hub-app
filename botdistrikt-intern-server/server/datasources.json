@@ -1,17 +1,12 @@
 {
   "db": {
-    "name": "db",
-    "connector": "memory",
-    "file": "mydata.json"
-  },
-  "postgresdb": {
     "host": "localhost",
-    "port": 5432,
-    "url": "postgres://postgres:197515@localhost/database",
-    "database": "todo",
-    "password": "197515",
-    "name": "postgresdb",
-    "user": "postgres",
+    "port": 5433,
+    "url": "",
+    "database": "test",
+    "password": "12345",
+    "name": "db",
+    "user": "alice",
     "connector": "postgresql"
   }
 }

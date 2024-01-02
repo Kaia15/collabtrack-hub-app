@@ -8,7 +8,8 @@
   "scripts": {
     "lint": "eslint .",
     "start": "node .",
-    "posttest": "npm run lint"
+    "posttest": "npm run lint",
+    "migrate": "lb-migrate"
   },
   "dependencies": {
     "@loopback/repository": "^6.1.4",
@@ -19,7 +20,7 @@
     "loopback": "^3.22.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^6.2.0",
-    "loopback-connector-postgresql": "^5.4.0",
+    "loopback-connector-postgresql": "^5.5.2",
     "serve-favicon": "^2.0.1",
     "strong-error-handler": "^4.0.0"
   },
