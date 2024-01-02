@@ -1,0 +1,167 @@
+<style>
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blank {
+    padding: 4rem;
+  }
+
+  table {
+    font-size: medium;
+    width: 100%;
+  }
+
+  th {
+    padding-left: 1.5rem;
+    /* 24px */
+    padding-right: 1.5rem;
+    /* 24px */
+    padding-top: 0.75rem;
+    /* 12px */
+    padding-bottom: 0.75rem;
+    /* 12px */
+    text-align: center;
+  }
+
+  td {
+    text-align: center;
+  }
+
+  thead {
+    color: rgb(107 114 128);
+  }
+
+  table,
+  th,
+  td {
+    border: 1px solid rgb(229 231 235);
+    ;
+    border-collapse: collapse;
+  }
+
+
+  .tasks {
+    background-color: white;
+    overflow-x: auto;
+  }
+
+  button {
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    background-color: rgb(29 78 216);
+    border-radius: 0.5rem;
+    /* 8px */
+    ;
+    font-size: 0.875rem;
+    /* 14px */
+    line-height: 1.25rem;
+    /* 20px */
+    padding-left: 1.25rem;
+    /* 20px */
+    padding-right: 1.25rem;
+    /* 20px */
+    padding-top: 6px;
+    /* 10px */
+    padding-bottom: 6px;
+    /* 10px */
+    text-align: center;
+    width: 25%;
+    margin-top: 12px;
+    border: none;
+  }
+
+  .check-box {
+    width: 1em;
+    height: 1em;
+    /* Other styles... */
+  }
+
+  .delete-button {
+    background-color: red;
+    margin: 4px 0px;
+  }
+
+  .crud-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+</style>
+
+
+<div class="main">
+  <div class="blank"></div>
+  <div class="tasks">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col"> # </th>
+          <th scope="col"> Title </th>
+          <th scope="col"> Description </th>
+          <th scope="col"> Status </th>
+          <th scope="col"> @ Assignee </th>
+          <th scope="col"> Due date </th>
+          <th scope="col"> Action </th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each this.tasks key="id" as |task|}}
+        <tr>
+          <td>
+            <input type="checkbox" value={{task.id}} class="check-box" {{on "change" this.selectTasks}}>
+          </td>
+          <th scope="row"> {{task.title}} </th>
+          <td> {{task.description}} </td>
+          <td> {{task.status}} </td>
+          <td> {{task.authorName}} </td>
+          <td> {{task.dueDate}} </td>
+          <td style="font-weight: bold;cursor:pointer;" {{on "click" (fn this.selectTaskId task.id)}}> Edit
+          </td>
+        </tr>
+        {{/each}}
+        {{!-- <tr>
+          <th><button {{on "click" }}> + Add </button></th>
+        </tr> --}}
+      </tbody>
+    </table>
+  </div>
+  <div class="crud-button">
+    <button {{on "click" this.openModal}}> + Add task </button>
+    {{#if this.show}}
+    <Form @state={{this.show}} @onchange={{this.closeModal}} />
+    {{/if}}
+    <button {{on "click" this.openDeleteModal}} class="delete-button"> Check & Delete </button>
+    {{#if this.showDeleteModal}}
+    <Modal @state={{this.selectedTasks}} @onchange={{this.closeDeleteModal}} />
+    {{/if}}
+    {{#if this.showUpdateModal}}
+    <Update @state={{this.selectedId}} @onchange={{this.closeUpdateModal}} />
+    {{/if}}
+    {{!-- {{#if true}}
+    <Main />
+    {{/if}} --}}
+  </div>
+</div>

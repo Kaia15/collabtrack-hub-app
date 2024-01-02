@@ -1,0 +1,220 @@
+<style>
+  #crud-modal {
+    position: absolute;
+    width: 100%;
+    margin: 0 auto;
+    top: 24px;
+    background-color: rgba(22, 22, 22, 0.5);
+    /* complimenting your modal colors */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 100%;
+  }
+
+  @media (max-width:960px) {
+    #crud-modal {
+      height: 100%;
+      margin-top: 40px;
+    }
+  }
+
+  @media (min-width:961px) {
+    #crud-modal {
+      height: 100%;
+    }
+  }
+
+  .modal-content {
+    position: relative;
+    background-color: white;
+    border-radius: 0.5rem;
+    /* 8px */
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    width: 75%;
+  }
+
+  .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    /* 16px */
+    border-bottom: 1px rgb(209 213 219) solid;
+    border-top-left-radius: 0.25rem;
+    /* 4px */
+    border-top-right-radius: 0.25rem;
+    /* 4px */
+  }
+
+  .close-modal {
+    color: rgb(156 163 175);
+    background-color: black;
+    border-radius: 0.5rem;
+    /* 8px */
+    font-size: medium;
+    width: 2rem;
+    /* 32px */
+    height: 2rem;
+    margin-inline-start: auto;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .close-modal:hover {
+    background-color: rgb(229 231 235);
+    color: rgb(17 24 39);
+  }
+
+  .icon-close-modal {
+    width: 0.75rem;
+    /* 12px */
+    height: 0.75rem;
+  }
+
+  .modal-body {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .modal-grid {
+    margin-bottom: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  input,
+  select,
+  textarea {
+    background-color: rgb(249 250 251);
+    border: 2px solid rgb(209 213 219);
+    color: rgb(17 24 39);
+    font-size: 0.875rem;
+    /* 14px */
+    line-height: 1.25rem;
+    /* 20px */
+    border-radius: 0.5rem;
+    /* 8px */
+    ;
+    display: block;
+    width: 100%;
+    padding: 0.625rem;
+    /* 10px */
+  }
+
+  .col-span-2 {
+    width: 75%;
+  }
+
+  h3 {
+    font-size: large;
+    font-weight: 600;
+    color: rgb(17 24 39);
+  }
+
+  label {
+    display: block;
+    margin-bottom: 2;
+    font-size: 0.875rem;
+    /* 14px */
+    line-height: 1.25rem;
+    /* 20px */
+    color: rgb(17 24 39);
+  }
+
+  .submit-button-icon {
+    margin-inline-start: 0.25rem;
+    /* 4px */
+    margin-inline-end: 0.25rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    /* 20px */
+  }
+
+  .submit-button {
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    background-color: rgb(29 78 216);
+    border-radius: 0.5rem;
+    /* 8px */
+    ;
+    font-size: 0.875rem;
+    /* 14px */
+    line-height: 1.25rem;
+    /* 20px */
+    width: 50%;
+    text-align: center;
+  }
+
+  .submit-button:hover {
+    background-color: rgb(30 64 175);
+  }
+</style>
+
+<div id="crud-modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <!-- Modal header -->
+    <div class="modal-header">
+      <h3 class="modal-head">
+        Create New Task
+      </h3>
+      <button type="button" class="close-modal" {{on "click" this.close}}>
+        {{!-- <svg class="icon-close-modal" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+          viewBox="0 0 14 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+        </svg> --}}
+        X
+        {{!-- <span class="sr-only">Close modal</span> --}}
+      </button>
+    </div>
+    <!-- Modal body -->
+    <form class="modal-body" {{on 'submit' this.postTask}}>
+      <div class="modal-grid">
+        <div class="col-span-2">
+          <label for="title">Title</label>
+          <input type="text" name="title" id="title" placeholder="Name the task" required="">
+        </div>
+        <div class="col-span-2 sm:col-span-1">
+          <label for="status">Status</label>
+          <input type="text" name="status" id="status" placeholder="to-do" required="">
+        </div>
+        <div class="col-span-2 sm:col-span-1">
+          <label for="authorId">Assignee</label>
+          <select id="authorId" {{on "change" this.handleAuthor}}>
+            <option selected={{0}}> Please assign someone </option>
+            {{#each this.authors key="id" as |author|}}
+            <option value={{author.id}}> {{author.name}}</option>
+            {{/each}}
+          </select>
+        </div>
+        <div class="col-span-2">
+          <label for="dueDate"> Due date </label>
+          <input type="date" id="dueDate" name="trip-start" value="2024-01-01" min="2024-01-01" max="2030-12-31" />
+        </div>
+        <div class="col-span-2">
+          <label for="description" class="">
+            Description</label>
+          <textarea id="description" rows="4" placeholder="Write a description here"></textarea>
+        </div>
+      </div>
+      <button type="submit" class="submit-button">
+        <svg class="submit-button-icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+            clip-rule="evenodd"></path>
+        </svg>
+        Add new task
+      </button>
+    </form>
+  </div>
+</div>

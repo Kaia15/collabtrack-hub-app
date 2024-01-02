@@ -1,0 +1,235 @@
+<!-- Modal toggle -->
+<style>
+    input,
+    select,
+    textarea {
+        background-color: rgb(249 250 251);
+        border: 2px solid rgb(209 213 219);
+        color: rgb(17 24 39);
+        font-size: 0.875rem;
+        /* 14px */
+        line-height: 1.25rem;
+        /* 20px */
+        border-radius: 0.5rem;
+        /* 8px */
+        ;
+        display: block;
+        width: 100%;
+        padding: 0.625rem;
+        /* 10px */
+        text-align: left;
+    }
+
+    .col-span-2 {
+        width: 75%;
+    }
+
+    h3 {
+        font-size: large;
+        font-weight: 600;
+        color: rgb(17 24 39);
+    }
+
+    label {
+        display: block;
+        margin-bottom: 2;
+        font-size: 0.875rem;
+        /* 14px */
+        line-height: 1.25rem;
+        /* 20px */
+        color: rgb(17 24 39);
+    }
+
+    #updateModal {
+        position: absolute;
+        width: 100%;
+        margin: 0 auto;
+        top: 24px;
+        background-color: rgba(22, 22, 22, 0.5);
+        /* complimenting your modal colors */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-height: 100%;
+    }
+
+    @media (max-width:960px) {
+        #updateModal {
+            height: 100%;
+            margin-top: 40px;
+        }
+    }
+
+    @media (min-width:961px) {
+        #updateModal {
+            height: 100%;
+        }
+    }
+
+
+    .modal-content {
+        position: relative;
+        background-color: white;
+        border-radius: 0.5rem;
+        /* 8px */
+        box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+        width: 75%;
+    }
+
+    .modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+        /* 16px */
+        border-bottom: 1px rgb(209 213 219) solid;
+        border-top-left-radius: 0.25rem;
+        /* 4px */
+        border-top-right-radius: 0.25rem;
+        /* 4px */
+    }
+
+    .close-modal {
+        color: rgb(156 163 175);
+        background-color: black;
+        border-radius: 0.5rem;
+        /* 8px */
+        font-size: medium;
+        width: 2rem;
+        /* 32px */
+        height: 2rem;
+        margin-inline-start: auto;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .close-modal:hover {
+        background-color: rgb(229 231 235);
+        color: rgb(17 24 39);
+    }
+
+    .icon-close-modal {
+        width: 0.75rem;
+        /* 12px */
+        height: 0.75rem;
+    }
+
+    .modal-body {
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .modal-grid {
+        margin-bottom: 1rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .submit-button-icon {
+        margin-inline-start: 0.25rem;
+        /* 4px */
+        margin-inline-end: 0.25rem;
+        width: 1.25rem;
+        height: 1.25rem;
+        /* 20px */
+    }
+
+    .submit-button {
+        color: white;
+        display: inline-flex;
+        align-items: center;
+        background-color: rgb(29 78 216);
+        border-radius: 0.5rem;
+        /* 8px */
+        ;
+        font-size: 0.875rem;
+        /* 14px */
+        line-height: 1.25rem;
+        /* 20px */
+        width: 50%;
+        /* 10px */
+        text-align: center;
+    }
+
+    .submit-button:hover {
+        background-color: rgb(30 64 175);
+    }
+</style>
+
+<!-- Main modal -->
+<div id="updateModal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <!-- Modal header -->
+        <div class="modal-header">
+            <h3 class="modal-head">
+                Update Task
+            </h3>
+            <button type="button" class="close-modal" {{on "click" this.close}}>
+                X
+            </button>
+        </div>
+        <!-- Modal body -->
+        <form class="modal-body" {{on "submit" this.updateTask}}>
+            <div class="modal-grid">
+                <div class="col-span-2">
+                    <label for="title"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
+                    <input type="text" name="title" id="title" value={{this.currentTask.title}}
+                        placeholder="Ex. Apple iMac 27&ldquo;">
+                </div>
+                <div class="col-span-2">
+                    <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Status
+                    </label>
+                    <input type="text" name="status" id="status" value={{this.currentTask.status}}
+                        placeholder="Ex. Apple">
+                </div>
+                <div class="col-span-2">
+                    <label for="dueDate"> Due date </label>
+                    <input type="date" id="dueDate" name="trip-start" value="2024-01-01" min="2024-01-01"
+                        max="2030-12-31" />
+                </div>
+                {{!-- <div>
+                    <label for="price"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
+                    <input type="number" value="399" name="status" id="price"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="$299">
+                </div> --}}
+                <div class="col-span-2">
+                    <label for="category"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Assignee</label>
+                    <select id="authorId" {{on "change" this.handleAuthor}}>
+                        <option value={{this.currentTask.author.id}}> {{this.currentTask.author.name}}</option>
+                        {{!-- <option value="TV">TV/Monitors</option>
+                        <option value="PC">PC</option>
+                        <option value="GA">Gaming/Console</option>
+                        <option value="PH">Phones</option> --}}
+                        {{#each this.authors key="id" as |author|}}
+                        <option value={{author.id}}> {{author.name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="col-span-2">
+                    <label for="description"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                    <textarea id="description" rows="5"
+                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="Write a description...">
+                            {{this.currentTask.description}}
+                        </textarea>
+                </div>
+            </div>
+            <button type="submit" class="submit-button">
+                Update task
+            </button>
+        </form>
+    </div>
+</div>
