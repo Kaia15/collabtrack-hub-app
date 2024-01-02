@@ -5,7 +5,8 @@
   "options": {
     "validateUpsert": true
   },
-  "dataSource": "postgresdb",
+  "dataSource": "db",
+  "public": true,
   "properties": {
     "name": {
       "type": "string",
