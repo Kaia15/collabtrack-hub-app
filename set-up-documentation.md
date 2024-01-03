@@ -51,12 +51,16 @@
 **Requirements:**
 
 1. Create an EmberJS application that interacts with the Loopback 3 API.
-2. Implement user interfaces to perform all CRUD operations on tasks and authors.
-3. Ensure seamless integration between the EmberJS frontend and the Loopback 3 backend.
-4. Implement client-side validations and error handling.
-5. Design a user-friendly interface with responsive design principles.
-6. Test the application thoroughly to ensure functionality and usability.
-7. Document setup and usage instructions in your project's README.md.
+   - Following https://guides.emberjs.com/release/tutorial/, install ember-cli & set up emberjs application.
+3. Implement user interfaces to perform all CRUD operations on tasks and authors.
+   - Build total 5-6 components & import states to retrieve, edit, delete & create Task & Author objects.
+   - Build main layout in `templates/application.hbs` and reuse it for main page & authors page.
+4. Ensure seamless integration between the EmberJS frontend and the Loopback 3 backend.
+   - Use simple `fetch` & call API in `async/await` function to perform CRUD operations on Task & Author models.
+5. Implement client-side validations and error handling.
+6. Design a user-friendly interface with responsive design principles.
+   - Referring to Flowbite built-in components & tailwind.css to build user-friendly UI.
+8. Test the application thoroughly to ensure functionality and usability. (see videos in https://github.com/Kaia15/bot-distrikt-intern/issues).
 
 **Submission:**
 
