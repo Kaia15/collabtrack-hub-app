@@ -34,8 +34,8 @@ export default class MainComponent extends Component {
       data = await response.json();
       // this.author = data;
       setTimeout(() => {
-        window.location.href = 'http://localhost:4200/';
-      }, 1000);
+        window.location.reload();
+      }, 800);
     } catch (err) {
       console.error('Error fetching data:', error);
     }

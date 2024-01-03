@@ -1,6 +1,7 @@
 "use strict";
 
 module.exports = function (Task) {
+  // find all tasks
   Task.getAllTasks = async function () {
     try {
       const tasks = await Task.find();
