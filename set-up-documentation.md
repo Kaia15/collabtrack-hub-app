@@ -33,7 +33,7 @@
    - However, we also can explicitly write some paths & add `remoteMethod` to implement CRUD endpoints, flexibly formatting & adding security layers. (2)
    - In `server/common/models/[filename].js`, some functions added to implement (2).
 6. Set up relationships in Loopback so that an Author can have multiple Tasks, but each Task belongs to only one Author.
-   - From https://loopback.io/doc/en/lb3/Define-model-relations.html guide, the relationship between `Task` & `Author` replicates `Review-Reviewers` in this guide.
+   - From https://loopback.io/doc/en/lb3/Define-model-relations.html, the relationship between `Task` & `Author` replicates `Review-Reviewers` in this guide.
    - Foreign key = authorId, Author: `hasMany`, Task: `belongsTo` 
 7. Explore and use mixins or middleware for additional functionalities (optional).
 8. Test your API using tools like Postman or curl:
