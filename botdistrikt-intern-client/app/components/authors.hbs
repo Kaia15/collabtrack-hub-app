@@ -171,7 +171,7 @@
         text-align: center;
     }
 
-    .confirm-button {
+    .confirm-delete-button {
         background-color: red;
     }
 
@@ -186,7 +186,7 @@
     }
 
     .cancel-button,
-    .confirm-button {
+    .confirm-delete-button {
         margin: 2px 4px;
     }
 </style>
@@ -251,10 +251,10 @@
             <p>Are you sure you want to delete this author?</p>
             <p>Warning: some associated tasks also change! </p>
             <div class="buttons">
-                <button class="cancel-button" {{on "click" this.close}}>
+                <button class="cancel-button" {{on "click" this.closeDelete}}>
                     No, cancel
                 </button>
-                <button class="confirm-button" {{on "click" this.deleteAuthor}}>
+                <button class="confirm-delete-button" {{on "click" this.deleteAuthor}}>
                     Yes, I'm sure
                 </button>
             </div>

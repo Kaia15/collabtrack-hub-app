@@ -26,7 +26,7 @@ export default class AuthorsComponent extends Component {
   @action removeAuthorId(id) {
     this.selectedAuthorId = id;
     // this.showUpdateModal = true;
-    console.log(this.selectedAuthorId);
+    // console.log(this.selectedAuthorId);
     this.openDelete();
   }
 
@@ -46,6 +46,7 @@ export default class AuthorsComponent extends Component {
   }
 
   @action async deleteAuthor() {
+    // console.log('a');
     try {
         const belongedTasks = await fetch(`http://localhost:3001/api/Authors/${this.selectedAuthorId}/tasks`);
         const parsed_tasks = await belongedTasks.json();
@@ -57,7 +58,7 @@ export default class AuthorsComponent extends Component {
         console.log(parsed);
         setTimeout(() => {
             window.location.reload();
-        }, 800);
+        }, 500);
     } catch (err) {
         console.log(err);
     }
