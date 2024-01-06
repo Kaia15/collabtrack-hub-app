@@ -39,7 +39,7 @@
    - Foreign key = authorId, Author: `hasMany`, Task: `belongsTo` 
 7. Explore and use mixins or middleware for additional functionalities (optional).
 8. Test your API using tools like Postman or curl:
-   - From localhost:3001/explorer, send some requests (in the list) in Postman, (pics in issue tab: https://github.com/Kaia15/bot-distrikt-intern/issues).
+   - From localhost:3001/explorer, send some requests (in the list) in Postman, (pics in issue tab: https://github.com/Kaia15/collabtrack-hub-app/issues/3).
    - https://loopback.io/doc/en/lb3/PersistedModel-REST-API.html for requests / api reference.
 9. Other notes:
    - Node version: 16.13.2
@@ -62,5 +62,5 @@
 5. Implement client-side validations and error handling.
 6. Design a user-friendly interface with responsive design principles.
    - Referring to Flowbite built-in components & tailwind.css to build user-friendly UI.
-8. Test the application thoroughly to ensure functionality and usability. (see videos in https://github.com/Kaia15/bot-distrikt-intern/issues).
+8. Test the application thoroughly to ensure functionality and usability. 
 
