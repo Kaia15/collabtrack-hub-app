@@ -6,7 +6,7 @@
 
 **Backend: Loopback 3 REST API**
 
-**Requirements:**
+**Details:**
 
 1. Set up a Loopback 3 project if not already done:
    - From https://loopback.io/doc/en/lb3/index.html, set up loopback-cli tools.
@@ -50,7 +50,7 @@
      
 **Frontend: EmberJS Web Application**
 
-**Requirements:**
+**Details:**
 
 1. Create an EmberJS application that interacts with the Loopback 3 API.
    - Following https://guides.emberjs.com/release/tutorial/, install ember-cli & set up emberjs application.
