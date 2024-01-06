@@ -64,14 +64,3 @@
    - Referring to Flowbite built-in components & tailwind.css to build user-friendly UI.
 8. Test the application thoroughly to ensure functionality and usability. (see videos in https://github.com/Kaia15/bot-distrikt-intern/issues).
 
-**Submission:**
-
-- **Minimum Requirement:** Share your project's codebase via a GitHub repository.
-- **Recommended Requirement:** Optionally, deploy your application on a server like Vercel, Heroku, Glitch, GCP, or AWS, and make it accessible via the internet.
-- Include a README.md file with detailed instructions on setting up and running the project, both for the backend and the frontend.
-
-**Notes:**
-
-- Please use Loopback 3, even though it has reached LTS status. We plan to switch to Loopback 4 or another framework in the future, but for now we are on Loopback 3
-- You may be required to use NodeJS v12 or v16 for the task. Please specify the engine version in your package.json
-
