@@ -1,6 +1,7 @@
 **Task: Create a Full-Stack Application for Managing Tasks**
 
 **Objective:** Your task is to create a full-stack application for managing tasks. This application will involve developing a RESTful API using Loopback 3 for the backend and creating a web frontend using EmberJS. The application should allow users to manage tasks, each of which is associated with an author.
+
 **Demo:** https://github.com/Kaia15/collabtrack-hub-app/issues/4
 
 **Backend: Loopback 3 REST API**
