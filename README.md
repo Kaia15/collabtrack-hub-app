@@ -42,6 +42,7 @@
    - From localhost:3001/explorer, send some requests (in the list) in Postman, (pics in issue tab: https://github.com/Kaia15/collabtrack-hub-app/issues/3).
    - https://loopback.io/doc/en/lb3/PersistedModel-REST-API.html for requests / api reference.
 9. Other notes:
+    Some updates (statuses) of some technologies I use:
    - Node version: 16.13.2
    - Loopback: v3.x
    - PSQL: v12.17.1
