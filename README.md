@@ -26,7 +26,11 @@
 4. Configure a Loopback datasource to store data in a Postgres database.
    - Use `lb model` to create loopback datasource, with v3.x, the name of datasource file will be `datasource.json`.
    - Set up database in PostgreSQL:
-      + In Windows, use command prompt to create user & create database (same user, password & database declared in datasource file).
+      + In Windows, use command prompt to create user & create database (same user, password & database declared in datasource file)
+        ```
+        sudo -u postgres createuser --login --pwprompt [username]
+        sudo -u postgres createdb --owner=[username] [databasename]
+        ```
       + Alter `[username]` to be SUPERUSER.
       + Reference: https://www3.ntu.edu.sg/home/ehchua/programming/sql/PostgreSQL_GetStarted.html
     - Put datasource field into two models: for i.e: `task.json` - {..., "datasource": "db"}, since "db" is the name of connector (given in datasource file).
