@@ -2,6 +2,8 @@
 
 **Objective:** The task is to create a full-stack application for managing tasks. This application will involve developing a RESTful API using Loopback 3 for the backend and creating a web frontend using EmberJS. The application should allow users to manage tasks, each of which is associated with an author.
 
+**Download:** For reference, you can clone this project by running command `git clone https://github.com/Kaia15/collabtrack-hub-app.git` in your VSCode terminal.
+
 **Demo:** [Demo(s) for this application](https://github.com/Kaia15/collabtrack-hub-app/issues/4)
 
 **Backend: Loopback 3 REST API**
